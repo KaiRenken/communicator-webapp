@@ -1,21 +1,12 @@
 import './App.css'
 import React from "react";
+import CreateChat from "./components/CreateChat.jsx";
 
 function App() {
 
-    const fetchChats = () => {
-        fetch('/api/chat', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-            .then(value => console.log(value.json()))
-    }
-
     return (
         <div className="App">
-            <button onClick={fetchChats}>Click</button>
+            <CreateChat/>
         </div>
     )
 }
