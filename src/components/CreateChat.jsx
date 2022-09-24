@@ -1,21 +1,15 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
+import axios from "axios";
 
 function CreateChat() {
     const [chatName, setChatName] = useState("")
 
     const createChat = (event) => {
-        event.preventDefault()
+        // event.preventDefault()
 
-        fetch('/api/chat', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+        axios.post('/api/chat', {
                 name: chatName
             })
-        })
             .then(value => {
                 handleResponse(value)
             })
