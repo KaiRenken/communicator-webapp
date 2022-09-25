@@ -19,7 +19,6 @@ function App() {
         return (
             <div className="chat">
                 <ChatMenu setChatId={setChatId}/>
-                <CreateChat/>
                 <Chat id={chatId}/>
             </div>
         )
