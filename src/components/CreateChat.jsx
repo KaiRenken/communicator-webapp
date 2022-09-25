@@ -1,12 +1,11 @@
 import React, {useState} from "react"
-import axios from "axios";
+import axios from "axios"
+import "../App.css"
 
 function CreateChat() {
     const [chatName, setChatName] = useState("")
 
-    const createChat = (event) => {
-        // event.preventDefault()
-
+    const createChat = () => {
         axios.post('/api/chat', {
                 name: chatName
             })
@@ -25,7 +24,7 @@ function CreateChat() {
     }
 
     return (
-        <div>
+        <div className="chat">
             <form onSubmit={createChat}>
                 <input type={"text"}
                        placeholder={"Name"}

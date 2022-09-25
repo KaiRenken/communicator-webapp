@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
-import axios from "axios";
+import axios from "axios"
 
-function ChatMenu() {
+function ChatMenu(props) {
     const [chats, setChats] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function ChatMenu() {
     return (
         <div>
             <ul>
-                {chats.map(chat => <li key={chat.id}>{chat.name}</li>)}
+                {chats.map(chat => <li key={chat.id} onClick={() => props.setChat(chat.id)}>{chat.name}</li>)}
             </ul>
         </div>
     )
