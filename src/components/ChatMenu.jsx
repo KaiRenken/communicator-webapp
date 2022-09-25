@@ -16,7 +16,7 @@ function ChatMenu(props) {
     return (
         <div>
             <ul>
-                {chats.map(chat => <li key={chat.id} onClick={() => props.setChat(chat.id)}>{chat.name}</li>)}
+                {chats.map(chat => <li key={chat.id} onClick={() => props.setChatId(chat.id)}>{chat.name}</li>)}
             </ul>
         </div>
     )

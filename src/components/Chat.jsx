@@ -1,15 +1,11 @@
-import React, {useState, useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import axios from "axios"
 
 function Chat(props) {
     const [messages, setMessages] = useState([])
 
     useEffect(() => {
-        if (props.id !== "") {
-            fetchMessages()
-        } else {
-            setMessages([])
-        }
+        fetchMessages()
     }, [props.id])
 
     function fetchMessages() {
@@ -25,4 +21,5 @@ function Chat(props) {
         </div>
     )
 }
+
 export default Chat

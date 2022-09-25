@@ -8,17 +8,22 @@ function App() {
 
     const [chatId, setChatId] = useState("")
 
-    function changeChat(id) {
-        setChatId(id)
+    if (chatId === "") {
+        return (
+            <div className="chat">
+                <ChatMenu setChatId={setChatId}/>
+                <CreateChat/>
+            </div>
+        )
+    } else {
+        return (
+            <div className="chat">
+                <ChatMenu setChatId={setChatId}/>
+                <CreateChat/>
+                <Chat id={chatId}/>
+            </div>
+        )
     }
-
-    return (
-        <div className="chat">
-            <ChatMenu setChat={changeChat}/>
-            <CreateChat/>
-            <Chat id={chatId}/>
-        </div>
-    )
 }
 
 export default App
