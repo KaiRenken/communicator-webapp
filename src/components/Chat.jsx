@@ -5,7 +5,9 @@ function Chat(props) {
     const [messages, setMessages] = useState([])
     const [messageContent, setMessageContent] = useState("")
 
-    const sendMessage = () => {
+    const sendMessage = (event) => {
+        event.preventDefault()
+
         axios.post('/api/message/' + props.id, {
             content: messageContent
         })
@@ -18,8 +20,14 @@ function Chat(props) {
     function handleResponse(response) {
         if (response.status !== 201) {
             response.json().then(value => alert('Message broadcast failed with error code ' + value.code + ' and messsage: ' + value.message))
+        } else {
+            fetchMessages()
         }
     }
+
+    useEffect(() => {
+        setMessageContent("")
+    }, [messages])
 
     useEffect(() => {
         fetchMessages()
